@@ -1,281 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: monospace;
-  background: black;
-  color: #00ffff;
-  overflow-x: hidden;
-}
-
-/* 3D canvas */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-/* Navbar */
-nav {
-  position: fixed;
-  width: 100%;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.4);
-}
-
-nav h1 {
-  color: #00ffff;
-}
-
-/* Hero */
-.hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.hero h2 {
-  font-size: 2.8rem;
-}
-
-.glow {
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-}
-
-/* Section */
-.section {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-/* Card */
-.card {
-  background: rgba(0,255,255,0.05);
-  border: 1px solid rgba(0,255,255,0.2);
-  padding: 20px;
-  border-radius: 15px;
-  margin: 10px;
-  backdrop-filter: blur(8px);
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  opacity: 0.6;
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <h1>Portofolio</h1>
-</nav>
-
-<section class="hero">
-  <h2 class="glow">AHWAJ KAFABI</h2>
-  <p>Software House | IT Project | Cybersecurity</p>
-</section>
-
-<section class="section">
-  <h2 class="glow">[ SKILLS ]</h2>
-  <div class="grid">
-    <div class="card">MySQL, Sqlitle, Microsoft SQL Server, SQL Injection, Sqlmap, Nmap, Wireshark</div>
-    <div class="card">Kotlin, Python, R, Java, C++, Excel, Word</div>
-    <div class="card">Collaboration & Teamwork, Time Management, Detail-Oriented, Problem Solving</div>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="glow">[ COURSE ]</h2>
-  <div class="grid">
-    <div class="card">Badan Siber dan Sandi Negara - Bimbingan teknis indeks keamanan informasi</div>
-    <div class="card">Google Developer Student Clubs Universitas Negeri Semarang - Android Kotlin Fundamentals</div>
-    <div class="card">IBM - SkillsBuild</div>
-    <div class="card">GOOGLE - Google Skillshop</div>
-    <div class="card">MICROSOFT - Microsoft Educator Center</div>
-    <div class="card">ORACLE - Oracle University</div>
-    <div class="card">CISCO - Cisco Networking Academy</div>
-    <div class="card">LINUX - The Linux Foundation</div>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="glow">[ ORGANIZATION ]</h2>
-  <div class="grid">
-    <div class="card">Android Developers</div>
-    <div class="card">Google Developer Group</div>
-    <div class="card">Google Developer Student Clubs</div>
-    <div class="card">National Cybersecurity Connect</div>
-  </div>
-</section>
-
-<section class="section">
-  <h2 class="glow">[ PROJECT IT ]</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>🍔 Food Ordering System (Android)</h3>
-      <div class="phone-frame">
-        <iframe src="https://ahwajkafabi.github.io/kantinfood/"></iframe></div>
-      <a href="https://ahwajkafabi.github.io/kantinfood/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
-    </div>
-    <div class="card">
-      <h3>💳 POS System (Android)</h3>
-            <div class="phone-frame">
-        <iframe src="https://ahwajkafabi.github.io/POS/"></iframe></div>
-      <a href="https://ahwajkafabi.github.io/POS/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
-    </div>
-    <div class="card">
-      <h3>🧺 Laundry System (Website)</h3>
-            <div class="phone-frame">
-        <iframe src="https://ahwajkafabi.github.io/Laundry/"></iframe></div>
-      <a href="https://ahwajkafabi.github.io/Laundry/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
-    </div>
-    <div class="card">
-      <h3>🚚 Kurir System (Android)</h3>
-            <div class="phone-frame">
-        <iframe src="https://ahwajkafabi.github.io/Ekspedisi/"></iframe></div>
-      <a href="https://ahwajkafabi.github.io/Ekspedisi/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
-    </div>
-    <div class="card">
-      <h3>🧾 Invoice System (Android)</h3>
-            <div class="phone-frame">
-        <iframe src="https://ahwajkafabi.github.io/invoice/"></iframe></div>
-      <a href="https://ahwajkafabi.github.io/invoice/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© Ahwaj Kafabi</p>
-</footer>
-
-<!-- THREE JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-
-<script>
-// Scene
-const scene = new THREE.Scene();
-
-// Camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth/window.innerHeight,
-  0.1,
-  1000
-);
-camera.position.z = 8;
-
-// Renderer
-const renderer = new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-// STARFIELD
-const starGeometry = new THREE.BufferGeometry();
-const starCount = 2000;
-
-const positions = new Float32Array(starCount * 3);
-
-for(let i=0;i<starCount;i++){
-  positions[i*3] = (Math.random()-0.5)*100;
-  positions[i*3+1] = (Math.random()-0.5)*100;
-  positions[i*3+2] = (Math.random()-0.5)*100;
-}
-
-starGeometry.setAttribute('position', new THREE.BufferAttribute(positions,3));
-
-const starMaterial = new THREE.PointsMaterial({
-  color: 0x00ffff,
-  size: 0.1
-});
-
-const stars = new THREE.Points(starGeometry, starMaterial);
-scene.add(stars);
-
-// GALAXY
-const galaxyGeometry = new THREE.BufferGeometry();
-const galaxyCount = 3000;
-
-const gPositions = new Float32Array(galaxyCount * 3);
-
-for(let i=0;i<galaxyCount;i++){
-  const radius = Math.random()*5;
-  const angle = radius * 2;
-
-  gPositions[i*3] = Math.cos(angle)*radius;
-  gPositions[i*3+1] = (Math.random()-0.5)*0.5;
-  gPositions[i*3+2] = Math.sin(angle)*radius;
-}
-
-galaxyGeometry.setAttribute('position', new THREE.BufferAttribute(gPositions,3));
-
-const galaxyMaterial = new THREE.PointsMaterial({
-  color: 0x8a2be2,
-  size: 0.08
-});
-
-const galaxy = new THREE.Points(galaxyGeometry, galaxyMaterial);
-scene.add(galaxy);
-
-// Mouse / Touch interaction
-let mouseX = 0;
-let mouseY = 0;
-
-window.addEventListener('mousemove', (e)=>{
-  mouseX = (e.clientX/window.innerWidth - 0.5);
-  mouseY = (e.clientY/window.innerHeight - 0.5);
-});
-
-window.addEventListener('touchmove', (e)=>{
-  mouseX = (e.touches[0].clientX/window.innerWidth - 0.5);
-  mouseY = (e.touches[0].clientY/window.innerHeight - 0.5);
-});
-
-// Animation
-function animate(){
-  requestAnimationFrame(animate);
-
-  stars.rotation.y += 0.0005;
-  galaxy.rotation.y += 0.001;
-
-  camera.position.x += (mouseX*5 - camera.position.x)*0.05;
-  camera.position.y += (-mouseY*5 - camera.position.y)*0.05;
-
-  camera.lookAt(scene.position);
-
-  renderer.render(scene,camera);
-}
-
-animate();
-
-// Resize fix
-window.addEventListener('resize', ()=>{
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth/window.innerHeight;
-  camera.updateProjectionMatrix();
-});
-</script>
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    
+    <style>
+    .phone-frame {
+      width: 100%;
+      height: 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 10px 0;
+      border: 2px solid rgba(0,255,255,0.3);
+      
+    }
+    
+    .phone-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      
+    }
+    
+    /* tombol */
+    .btn {
+      display: block;
+      background: #00ffff;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    /* biar grid lebih rapi */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 20px;
+    }
+    
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: black;
+      color: #00ffff;
+      overflow-x: hidden;
+    }
+    
+    /* 3D canvas */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.4);
+    }
+    
+    nav h1 {
+      color: #00ffff;
+    }
+    
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 2.8rem;
+    }
+    
+    .glow {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    
+    /* Section */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    /* Card */
+    .card {
+      background: rgba(0,255,255,0.05);
+      border: 1px solid rgba(0,255,255,0.2);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 10px;
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+    }
+    
+    </style>
+  </head>
+  
+  <body>
+      <nav>
+        <h1>Portofolio</h1>
+        </nav>
+        
+        <section class="hero">
+          <h2 class="glow">AHWAJ KAFABI</h2>
+          <p>Software House | IT Project | Cybersecurity</p>
+          </section>
+          <section class="section">
+            <h2 class="glow">[ SKILLS ]</h2>
+            <div class="grid">
+              <div class="card">MySQL, Sqlitle, Microsoft SQL Server, SQL Injection, Sqlmap, Nmap, Wireshark</div>
+              <div class="card">Kotlin, Python, R, Java, C++, Excel, Word</div>
+              <div class="card">Collaboration & Teamwork, Time Management, Detail-Oriented, Problem Solving</div>
+              </div>
+          </section>
+              
+          <section class="section">
+            <h2 class="glow">[ COURSE ]</h2>
+            <div class="grid">
+              <div class="card">Badan Siber dan Sandi Negara - Bimbingan teknis indeks keamanan informasi</div>
+              <div class="card">Google Developer Student Clubs Universitas Negeri Semarang - Android Kotlin Fundamentals</div>
+              <div class="card">IBM - SkillsBuild</div>
+              <div class="card">GOOGLE - Google Skillshop</div>
+              <div class="card">MICROSOFT - Microsoft Educator Center</div>
+              <div class="card">ORACLE - Oracle University</div>
+              <div class="card">CISCO - Cisco Networking Academy</div>
+              <div class="card">LINUX - The Linux Foundation</div>
+              </div>
+          </section>
+                  
+          <section class="section">
+            <h2 class="glow">[ CERTIFICATE SKILL ]</h2>
+            <div class="grid">
+              <div class="card">
+                <h3>🎓 Certificate Skill</h3>
+                <p>Kumpulan sertifikat & skill saya tersedia di Linktree</p>
+                <a href="https://linktr.ee/ahwajkafabi" target="_blank" class="btn">🌐 Lihat Semua Sertifikat</a>
+                </div>
+                </div>
+          </section>
+          
+          <section class="section">
+            <h2 class="glow">[ ORGANIZATION ]</h2>
+            <div class="grid">
+              <div class="card">Android Developers</div>
+              <div class="card">Google Developer Group</div>
+              <div class="card">Google Developer Student Clubs</div>
+              <div class="card">National Cybersecurity Connect</div>
+              </div>
+          </section>
+          
+          <section class="section">
+            <h2 class="glow">[ PROJECT IT ]</h2>
+            <div class="grid">
+              <div class="card">
+                <h3>🍔 Food Ordering System (Android)</h3>
+                <div class="phone-frame">
+                  <iframe src="https://ahwajkafabi.github.io/kantinfood/"></iframe></div>
+                  <a href="https://ahwajkafabi.github.io/kantinfood/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
+              </div>
+              <div class="card">
+                <h3>💳 POS System (Android)</h3>
+                <div class="phone-frame">
+                  <iframe src="https://ahwajkafabi.github.io/POS/"></iframe></div>
+                  <a href="https://ahwajkafabi.github.io/POS/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
+              </div>
+              <div class="card">
+                <h3>🧺 Laundry System (Website)</h3>
+                <div class="phone-frame">
+                  <iframe src="https://ahwajkafabi.github.io/Laundry/"></iframe></div>
+                  <a href="https://ahwajkafabi.github.io/Laundry/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
+              </div>
+              <div class="card">
+                <h3>🚚 Kurir System (Android)</h3>
+                <div class="phone-frame">
+                  <iframe src="https://ahwajkafabi.github.io/Ekspedisi/"></iframe></div>
+                  <a href="https://ahwajkafabi.github.io/Ekspedisi/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
+              </div>
+              <div class="card">
+                <h3>🧾 Invoice System (Android)</h3>
+                <div class="phone-frame">
+                  <iframe src="https://ahwajkafabi.github.io/invoice/"></iframe></div>
+                  <a href="https://ahwajkafabi.github.io/invoice/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
+              </div>
+              <div class="card">
+                <h3>🧾 Absen System (Android)</h3>
+                <div class="phone-frame">
+                  <iframe src="https://ahwajkafabi.github.io/absen/"></iframe></div>
+                  <a href="https://ahwajkafabi.github.io/absen/" target="_blank" class="btn"><h3>🌐 Lihat Demo</h3></a>
+              </div>
+            </div>
+          </section>
+          
+    <footer>
+      <p>© Ahwaj Kafabi</p>
+    </footer>
+    
+    <!-- THREE JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    
+    <script>
+      // Scene
+      const scene = new THREE.Scene();
+      // Camera
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth/window.innerHeight,
+        0.1,
+        1000
+        );
+        camera.position.z = 8;
+      // Renderer
+      const renderer = new THREE.WebGLRenderer({alpha:true});
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      // STARFIELD
+      const starGeometry = new THREE.BufferGeometry();
+      const starCount = 2000;
+      const positions = new Float32Array(starCount * 3);
+      for(let i=0;i<starCount;i++){
+        positions[i*3] = (Math.random()-0.5)*100;
+        positions[i*3+1] = (Math.random()-0.5)*100;
+        positions[i*3+2] = (Math.random()-0.5)*100;
+      }
+      starGeometry.setAttribute('position', new THREE.BufferAttribute(positions,3));
+      const starMaterial = new THREE.PointsMaterial({
+        color: 0x00ffff,
+        size: 0.1
+      });
+      const stars = new THREE.Points(starGeometry, starMaterial);
+      scene.add(stars);
+      // GALAXY
+      const galaxyGeometry = new THREE.BufferGeometry();
+      const galaxyCount = 3000;
+      const gPositions = new Float32Array(galaxyCount * 3);
+      for(let i=0;i<galaxyCount;i++){
+        const radius = Math.random()*5;
+        const angle = radius * 2;
+        gPositions[i*3] = Math.cos(angle)*radius;
+        gPositions[i*3+1] = (Math.random()-0.5)*0.5;
+        gPositions[i*3+2] = Math.sin(angle)*radius;
+      }
+      galaxyGeometry.setAttribute('position', new THREE.BufferAttribute(gPositions,3));
+      const galaxyMaterial = new THREE.PointsMaterial({
+        color: 0x8a2be2,
+        size: 0.08
+      });
+      const galaxy = new THREE.Points(galaxyGeometry, galaxyMaterial);
+      scene.add(galaxy);
+      // Mouse / Touch interaction
+      let mouseX = 0;
+      let mouseY = 0;
+      window.addEventListener('mousemove', (e)=>{
+        mouseX = (e.clientX/window.innerWidth - 0.5);
+        mouseY = (e.clientY/window.innerHeight - 0.5);
+      });
+      window.addEventListener('touchmove', (e)=>{
+        mouseX = (e.touches[0].clientX/window.innerWidth - 0.5);
+        mouseY = (e.touches[0].clientY/window.innerHeight - 0.5);
+      });
+      // Animation
+      function animate(){
+        requestAnimationFrame(animate);
+        stars.rotation.y += 0.0005;
+        galaxy.rotation.y += 0.001;
+        camera.position.x += (mouseX*5 - camera.position.x)*0.05;
+        camera.position.y += (-mouseY*5 - camera.position.y)*0.05;
+        camera.lookAt(scene.position);
+        renderer.render(scene,camera);
+      }
+      animate();
+      // Resize fix
+      window.addEventListener('resize', ()=>{
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth/window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+    </script>
+  </body>
 </html>
